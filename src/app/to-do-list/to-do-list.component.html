@@ -1,0 +1,16 @@
+<div>
+  <div
+    *ngFor="let item of toDoList"
+    class="panel"
+    [ngClass]="{'panel-default':!item.completed, 'panel-primary': item.completed}">
+    <div class="panel-heading">
+      {{item.title}}
+      <button *ngIf="!item.completed" type="button" class="btn btn-primary pull-right" data-toggle="modal" (click)="markIsCompleted(item.id)">Complete</button>
+    </div>
+    <div class="panel-body">
+      {{item.description}}
+    </div>
+  </div>
+</div>
+
+<app-add-to-do-item></app-add-to-do-item>
